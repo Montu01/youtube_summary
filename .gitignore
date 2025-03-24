@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log*
+yarn-error.log*
+/build
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.development
+
+# Thumbnails and media files
+/backend/static/thumbnails/*
+!/backend/static/thumbnails/.gitkeep
+/backend/static/thumbnails/upscaled/*
+!/backend/static/thumbnails/upscaled/.gitkeep
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

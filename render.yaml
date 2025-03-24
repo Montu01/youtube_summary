@@ -1,0 +1,27 @@
+services:
+  # Backend service
+  - type: web
+    name: youtube-summarizer-backend
+    env: python
+    region: ohio # Choose a region close to your users
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    plan: free # Change to paid plans for better performance
+    rootDir: backend
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: FRONTEND_URL
+        sync: false # This will be manually set after frontend deployment
+
+  # Frontend service
+  - type: web
+    name: youtube-summarizer-frontend
+    env: static
+    region: ohio # Match the same region as your backend
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: ./frontend/build
+    plan: free # Change to paid plans for better performance
+    envVars:
+      - key: REACT_APP_API_URL
+        sync: false # This will be manually set after backend deployment
